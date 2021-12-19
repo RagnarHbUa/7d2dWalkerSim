@@ -1,0 +1,6 @@
+Properties
+7d2dWalkerSim.csproj
+obj
+bin/Debug/*
+bin/Release/*
+!bin/Release/7d2dWalkerSim.dll

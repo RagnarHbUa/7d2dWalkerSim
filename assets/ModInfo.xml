@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml>
+  <ModInfo>
+    <Name value="Ragnars_WalkerSim" />
+    <Description value="Zombie Horde Simulation Plugin https://github.com/RagnarHbUa/7d2dWalkerSim" />
+    <Author value="RagnarHbUa" />
+    <Version value="1.0.0" />
+    <Website value="" />
+  </ModInfo>
+</xml>
