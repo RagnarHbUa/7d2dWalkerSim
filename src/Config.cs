@@ -16,6 +16,7 @@ namespace WalkerSim
         public bool PauseWithoutPlayers { get; private set; }
         public int SpinupTicks { get; private set; }
         public bool Persistent { get; private set; }
+        public int persistence_save_interval { get; private set; }
         public int WorldZoneDivider { get; private set; }
         public float POITravellerChance { get; private set; }
         public int PopulationDensity { get; private set; }
@@ -36,6 +37,7 @@ namespace WalkerSim
             POITravellerChance = 0.75f;
             PopulationDensity = 40;
             Persistent = true;
+            persistence_save_interval = 2;
             WalkSpeedScale = 1.0f;
             ReservedSpawns = 0.5f;
             PauseDuringBloodmon = false;
@@ -70,6 +72,11 @@ namespace WalkerSim
                 return false;
             if (PauseDuringBloodmon != other.PauseDuringBloodmon)
                 return false;
+            if (persistence_save_interval != other.persistence_save_interval)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -140,6 +147,10 @@ namespace WalkerSim
                     case "Persistent":
                         Persistent = ToBool(node.InnerText);
                         Log.Out("[WalkerSim] {0} = {1}", "Persistent", Persistent);
+                        break;
+                    case "PersistenceSaveInterval":
+                        persistence_save_interval = int.Parse(node.InnerText);
+                        Log.Out("[WalkerSim] {0} = {1}", "persistence_save_interval", persistence_save_interval);
                         break;
                     case "WorldZoneDivider":
                         WorldZoneDivider = int.Parse(node.InnerText);

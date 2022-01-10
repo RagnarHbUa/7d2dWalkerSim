@@ -4,3 +4,4 @@ obj
 bin/Debug/*
 bin/Release/*
 !bin/Release/7d2dWalkerSim.dll
+7d2dWalkerSim.csproj.user

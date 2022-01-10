@@ -121,7 +121,6 @@ namespace WalkerSim
 			
 			
 			respawn_day_frequency = GamePrefs.GetInt(EnumGamePrefs.BloodMoonFrequency) * respawn_day_frequency_increasing_coefficient;
-			
 
             Log.Out("[WalkerSim] Initialized");
         }
@@ -244,7 +243,7 @@ namespace WalkerSim
                 return;
 
             Save();
-            _nextSave = now.AddMinutes(5);
+            _nextSave = now.AddMinutes(Config.Instance.persistence_save_interval);
         }
 
         public bool Load()
@@ -708,7 +707,7 @@ namespace WalkerSim
                         Log.Out("[WalkerSim] Failed to get zombie with entity id {0}", zombie.entityId);
 #endif
                         removeZombie = true;
-                        RespawnInactiveZombie(zombie);
+                        //RespawnInactiveZombie(zombie);  // turned off to disable insta respawn
                     }
                     else
                     {
@@ -720,7 +719,7 @@ namespace WalkerSim
                         {
                             deactivatedZombies++;
                             removeZombie = true;
-                            //RespawnInactiveZombie(zombie);
+                            //RespawnInactiveZombie(zombie);   // turned off to disable insta respawn
                         }
                         else
                         {
